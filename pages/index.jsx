@@ -1,3 +1,4 @@
+import EventList from "../components/events/EventList";
 import { getFeaturedEvents } from "../dummy-data";
 
 const Homepage = () => {
@@ -5,7 +6,7 @@ const Homepage = () => {
 
   return (
     <div>
-      <h1>Home Page</h1>
+      <EventList items={featuredEvents} />
     </div>
   );
 };
