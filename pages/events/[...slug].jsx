@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+
+import EventList from "../../components/events/EventList";
 import { getFilteredEvents } from "../../dummy-data";
 
 const FilteredEventsPage = () => {
@@ -10,8 +12,8 @@ const FilteredEventsPage = () => {
     return <p>Loading...</p>;
   }
 
-  const filteredYear = filterData[0];
-  const filteredMonth = filterData[1];
+  const filteredYear = +filterData[0];
+  const filteredMonth = +filterData[1];
 
   if (
     isNaN(filteredYear) ||
@@ -32,9 +34,10 @@ const FilteredEventsPage = () => {
   if (!filteredEvents || filteredEvents.length === 0) {
     return <p>No events found for the chosen filters!</p>;
   }
+
   return (
     <div>
-      <h1>Filtered Events</h1>
+      <EventList items={filteredEvents} />
     </div>
   );
 };
